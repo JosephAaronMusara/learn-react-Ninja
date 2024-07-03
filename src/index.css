@@ -48,3 +48,14 @@
   color: #f1356d;
   margin-bottom: 8px;
 }
+
+.cherandom{
+  font-size: x-large;
+  color: dimgrey;
+  margin-top: 25px;
+}
+
+.cherandom:hover{
+  box-shadow: 1px 3px 5px rgba(115, 7, 216, 0.1);
+
+}

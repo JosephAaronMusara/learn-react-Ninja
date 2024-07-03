@@ -14,8 +14,8 @@ const Home = () => {
         setBlogs(newBlogs);
     }
 
-    const [name,setName] = useState('Aaron');
-    // const [age,setAge] = useState(21)
+    //const [name,setName] = useState('Aaron');
+    const [age,setAge] = useState(21)
 
     // const handleClick =() =>{
     //     setName('Tariroyashe');
@@ -29,15 +29,17 @@ const Home = () => {
 
         console.log('useEffect has been invoked');
 
-    },[name] //We can run it conditionally by giving it a secont argument as an array, which we can implement sensibly through states
+    },[age] //We can run it conditionally by giving it a secont argument as an array, which we can implement sensibly through states
     );
 
 
     return (
         <div className="home">
             <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/>
-            <p>{name}</p>
-            <button onClick={()=>setName('Tariroyashe')}>Change name</button>
+            <div className='cherandom'>
+                <p>The number is {age}</p>
+                <button onClick={()=>setAge(Math.random)}>Change number</button>
+            </div>
             {/* <BlogList blogs={blogs.filter((blog)=>blog.author ==='mario')}  title="Mario's Blogs" handleDelete={handleDelete}/> */}
 
             {/* <h2>Home Page</h2>
