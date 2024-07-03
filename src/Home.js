@@ -14,16 +14,7 @@ const Home = () => {
         setBlogs(newBlogs);
     }
 
-    useEffect(()=>{
-        //another built-in hook
-        // This runs at initial runtime or whenever new data is rendered
-        //UseCases: Fetch Data, Communicating with other services to notify about such changes
-
-        console.log('useEffect has been invoked');
-
-    });
-
-    // const [name,setName] = useState('Aaron');
+    const [name,setName] = useState('Aaron');
     // const [age,setAge] = useState(21)
 
     // const handleClick =() =>{
@@ -31,9 +22,22 @@ const Home = () => {
     //     setAge(17);
     // }
 
+    useEffect(()=>{
+        //another built-in hook
+        // This runs at initial runtime or whenever new data is rendered
+        //UseCases: Fetch Data, Communicating with other services to notify about such changes
+
+        console.log('useEffect has been invoked');
+
+    },[name] //We can run it conditionally by giving it a secont argument as an array, which we can implement sensibly through states
+    );
+
+
     return (
         <div className="home">
             <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/>
+            <p>{name}</p>
+            <button onClick={()=>setName('Tariroyashe')}>Change name</button>
             {/* <BlogList blogs={blogs.filter((blog)=>blog.author ==='mario')}  title="Mario's Blogs" handleDelete={handleDelete}/> */}
 
             {/* <h2>Home Page</h2>
