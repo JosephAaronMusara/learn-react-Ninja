@@ -6,18 +6,21 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(()=>{
-        fetch('http://localhost:8000/blogs')
-        .then(res=>{
-            return res.json();
+    setTimeout(() => {
+      fetch("http://localhost:8000/blogs")
+        .then((res) => {
+          return res.json();
         })
-        .then(data=>{
-            console.log(data);
-            setBlogs(data);
-            setIsLoading(false);
+        .then((data) => {
+          console.log(data);
+          setBlogs(data);
+          setIsLoading(false);
+        })
+        .catch(err=>{
+            console.log(err.message);
         });
-    },1000);//added a delay to see the effect. Never do this in practice
-  },[]);
+    }, 1000); //added a delay to see the effect. Never do this in practice
+  }, []);
 
   // const handleDelete = (id) => {
   //     const newBlogs = blogs.filter(blog => blog.id !== id);
@@ -44,7 +47,7 @@ const Home = () => {
 
   return (
     <div className="home">
-        {isLoading && <div>Loading............</div>}
+      {isLoading && <div>Loading............</div>}
       {blogs && <BlogList blogs={blogs} title="All Blogs" />}
 
       {/* <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/> */}
