@@ -34,7 +34,6 @@
   padding: 20px;
 }
 
-/* blog previews / list */
 .blog-preview {
   padding: 10px 16px;
   margin: 20px 0;
@@ -48,7 +47,7 @@
   color: #f1356d;
   margin-bottom: 8px;
 }
-.blog-preview a{
+.blog-preview a, .not-found a{
   text-decoration: none;
 }
 
