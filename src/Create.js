@@ -4,9 +4,24 @@ const Create = () => {
   const [title, setTitle] = useState('');
   const [body,setBody] = useState('');
   const [author,setAuthor] = useState('Select author');
+  const [creating, setCreating] =useState(false);
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    const blog = {title,body,author};
+    setCreating(true);
+
+    fetch('http://localhost:8000/blogs',{
+        method : 'POST',
+        headers :{'Content-Type': 'application/json'},
+        body : JSON.stringify(blog)
+    }).then(()=>{
+        setCreating(false);
+    });
+  }
   return (
     <div className="create">
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Blog Title : </label>
         <input type="text" required value={title} onChange={(e)=>setTitle(e.target.value)} />
         <label>Blog Body : </label>
@@ -16,13 +31,14 @@ const Create = () => {
           <option value="mario">mario</option>
           <option value="yoshi">yoshi</option>
         </select>
-        <button>Add Blog</button>
+        {creating && <button disabled>Adding Blog</button>}
+        {!creating && <button>Add Blog</button>}
 
-        <div>
+        {/* <div>
         <p>Title: {title}</p>
         <p>Body: {body}</p>
         <p>Author: {author}</p>
-        </div>
+        </div> */}
       </form>
     </div>
   );
