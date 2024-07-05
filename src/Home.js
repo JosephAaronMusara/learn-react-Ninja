@@ -6,7 +6,8 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:8000/blogs')
+    setTimeout(()=>{
+        fetch('http://localhost:8000/blogs')
         .then(res=>{
             return res.json();
         })
@@ -15,6 +16,7 @@ const Home = () => {
             setBlogs(data);
             setIsLoading(false);
         });
+    },1000);//added a delay to see the effect. Never do this in practice
   },[]);
 
   // const handleDelete = (id) => {
