@@ -22,9 +22,7 @@ const BlogList = ({ blogs, title }) => {
         <h2>{title}</h2>
         {blogs
           .filter((blog) => {
-            return search.toLowerCase() === ""
-              ? blog
-              : blog.title.toLowerCase().includes(search.toLowerCase());
+            return search.toLowerCase() === "" ? blog : blog.title.toLowerCase().includes(search.toLowerCase());
           })
           .map((blog) => (
             <div className="blog-preview" key={blog.id}>
