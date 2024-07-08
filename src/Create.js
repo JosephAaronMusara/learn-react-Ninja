@@ -19,7 +19,7 @@ const Create = () => {
         body : JSON.stringify(blog)
     }).then(()=>{
         setCreating(false);
-        history.push('/')
+        history.push('/');
     });
   }
   return (
